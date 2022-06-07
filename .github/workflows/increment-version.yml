@@ -41,8 +41,8 @@ jobs:
           print(list.files())
           print(list.files(".."))
           pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          path2 <- '${{ GITHUB_WORKSPACE }}'
-          #path2 <- file.path({{ Sys.getenv(GITHUB_WORKSPACE) }}, "main-clone")
+          path <- ${{ GITHUB.WORKSPACE }}
+          path2 <- file.path(path, "main-clone")
           print(path2)
           print(list.files(path2))
           #cur_ver <- package_version(read.dcf(file.path("main-clone", 'DESCRIPTION'), fields = 'Version')[[1]])
