@@ -27,10 +27,10 @@ jobs:
           r-version: 'release'
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::usethis
-          needs: use_package
+      #- uses: r-lib/actions/setup-r-dependencies@v2
+      #  with:
+      #    extra-packages: any::usethis
+      #    needs: use_package
       
       - name: Check where path goes
         shell: Rscript {0}
