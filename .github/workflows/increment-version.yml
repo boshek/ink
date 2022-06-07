@@ -42,8 +42,6 @@ jobs:
           print(list.files(".."))
           pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
           path <- ${{ GITHUB.WORKSPACE }}
-          path2 <- file.path(path, "main-clone")
-          print(path2)
-          print(list.files(path2))
+          print(list.files(path, recursively = TRUE))
           #cur_ver <- package_version(read.dcf(file.path("main-clone", 'DESCRIPTION'), fields = 'Version')[[1]])
           #if (pr_ver == cur_ver) stop("Need to increment!")
