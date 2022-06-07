@@ -32,10 +32,5 @@ jobs:
       - name: Check if description has been updated
         shell: Rscript {0}
         run: |
-          print(list.files(".."))
-          pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          path <- '${{ GITHUB.WORKSPACE }}'
-          print(path)
-          print(list.files(path, recursive = TRUE))
           #cur_ver <- package_version(read.dcf(file.path("main-clone", 'DESCRIPTION'), fields = 'Version')[[1]])
           #if (pr_ver == cur_ver) stop("Need to increment!")
