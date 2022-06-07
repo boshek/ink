@@ -26,11 +26,12 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::usethis
-          needs: use_package
+          extra-packages: any::gert
       
       - name: Check if description has been updated
         shell: Rscript {0}
         run: |
-          #cur_ver <- package_version(read.dcf(file.path("main-clone", 'DESCRIPTION'), fields = 'Version')[[1]])
-          #if (pr_ver == cur_ver) stop("Need to increment!")
+          pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
+          gert::git_branch_checkout("main")
+          cur_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
+          if (pr_ver == cur_ver) stop("Need to increment!")
