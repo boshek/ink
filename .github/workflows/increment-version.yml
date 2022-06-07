@@ -38,5 +38,5 @@ jobs:
         shell: Rscript {0}
         run: |
           pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          cur_ver <- package_version(read.dcf(file.path(main-clone, 'DESCRIPTION'), fields = 'Version')[[1]])
+          cur_ver <- package_version(read.dcf(file.path("../main-clone", 'DESCRIPTION'), fields = 'Version')[[1]])
           if (pr_ver == cur_ver) stop("Need to increment!")
