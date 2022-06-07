@@ -1,4 +1,5 @@
-^ink\.Rproj$
-^\.Rproj\.user$
 ^LICENSE\.md$
+^\.Rproj\.user$
 ^\.github$
+^\.pre-commit-config\.yaml$
+^ink\.Rproj$
