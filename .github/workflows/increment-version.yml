@@ -35,7 +35,7 @@ jobs:
           needs: use_package
 
       - name: Check if description has been updated
-        shell: Rscript{0}
+        shell: Rscript {0}
         run: |
           pr_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
           cur_ver <- package_version(read.dcf(file.path(main-clone, 'DESCRIPTION'), fields = 'Version')[[1]])
