@@ -37,11 +37,7 @@ jobs:
         run: |
           usethis::use_version("dev")
           pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          Sys.setenv(PKG_VER = as.character(pkg_ver))
-
-
-      - name: Commit and push
-        run: |
-          git add DESCRIPTION
-          git commit -m "increment-package to $PKG_VER"
-          git push origin
+          git_add('DESCRIPTION')
+          git_commit(paste0("increment-package to ", pkg_ver))
+          git_push()
+          
