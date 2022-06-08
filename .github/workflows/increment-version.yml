@@ -29,7 +29,7 @@ jobs:
         run: |
           usethis::use_version("dev")
           pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          Sys.setenv(PKG_VER = pkg_ver)
+          Sys.setenv(PKG_VER = as.character(pkg_ver))
       - name: Setup Git User
         run: |
           git config --local user.name "Github Actions"
