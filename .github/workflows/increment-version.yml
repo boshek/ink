@@ -33,7 +33,7 @@ jobs:
           print(pkg_ver)
           print(new_ver)
 
-        - name: Commit and push
+      - name: Commit and push
         run: |
           git add DESCRIPTION
           git commit -m "increment-package"
