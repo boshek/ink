@@ -37,7 +37,7 @@ jobs:
         run: |
           usethis::use_version("dev")
           pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          git_add('DESCRIPTION')
-          git_commit(paste0("increment-package to ", pkg_ver))
-          git_push()
+          gert::git_add('DESCRIPTION')
+          gert::git_commit(paste0("increment-package to ", pkg_ver))
+          gert::git_push()
           
