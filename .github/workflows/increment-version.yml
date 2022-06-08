@@ -28,7 +28,7 @@ jobs:
         shell: Rscript {0}
         run: |
           usethis::use_version("dev")
-          pkg_ver <- package_version(read.dcf('conbench/DESCRIPTION', fields = 'Version')[[1]])
+          pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
           Sys.setenv(PKG_VER = pkg_ver)
       - name: Setup Git User
         run: |
