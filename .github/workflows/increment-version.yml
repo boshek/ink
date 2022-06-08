@@ -32,3 +32,9 @@ jobs:
           new_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
           print(pkg_ver)
           print(new_ver)
+
+        - name: Commit and push
+        run: |
+          git add DESCRIPTION
+          git commit -m "increment-package"
+          git push origin
