@@ -22,7 +22,15 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::usethis
+          extra-packages: |
+              any::usethis
+              any::gert
+
+      - name: Setup Git User
+        run: |
+          git config --local user.name "Github Actions"
+          git config --local user.email "github-actions@users.noreply.github.com"
+          git pull
 
       - name: Check if description has been updated
         shell: Rscript {0}
@@ -30,11 +38,7 @@ jobs:
           usethis::use_version("dev")
           pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
           Sys.setenv(PKG_VER = as.character(pkg_ver))
-      - name: Setup Git User
-        run: |
-          git config --local user.name "Github Actions"
-          git config --local user.email "github-actions@users.noreply.github.com"
-          git pull
+
 
       - name: Commit and push
         run: |
