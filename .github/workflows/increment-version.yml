@@ -26,13 +26,7 @@ jobs:
 
       - name: Check if description has been updated
         shell: Rscript {0}
-        run: |
-          pkg_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          usethis::use_version("dev")
-          new_ver <- package_version(read.dcf('DESCRIPTION', fields = 'Version')[[1]])
-          print(pkg_ver)
-          print(new_ver)
-      
+        run: usethis::use_version("dev")
       - name: Setup Git User
         run: |
           git config --local user.name "Github Actions"
